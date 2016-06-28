@@ -1,0 +1,99 @@
+<div class="row">
+    <div class="col-md-12" ng-if="!editform">
+        <div class="awidget">
+            <div class="awidget-head ">
+                <h3>ContactUs Widget</h3>
+
+                <div class="pull-right">
+                    <button class="btn btn-info" ng-click="addnew()">Add New</button>
+                </div>
+            </div>
+            <br/><br>
+
+            <div class="awidget-body">
+                <ul class="chats" ng-repeat="data in contactdata">
+                    <li class="by-me" ng-if="$index %2 == 0">
+                        <div>
+                            <img ng-src="{{data.image}}" style="width:190px !important;">
+                        </div>
+                        <div class="chat-content">
+                            <div class="chat-meta"><b>{{data.name}}</b>({{data.email}}) <span class="pull-right"><ul>
+                                <li class="btn btn-xs btn-info" ng-click="edit(data)">Edit</li>
+                                <li class="btn btn-xs btn-danger" ng-click="remove(data._id)">Delete</li>
+                            </ul></span></div>
+                            {{data.message}}
+                            <span class="pull-right" style="margin-top:35px;font-weight:600">{{data.time |date:'fullDate'}}</span>
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </li>
+                    <li class="by-other" ng-if="$index %2 !=0">
+                        <div>
+                            <img ng-src="{{data.image}}" style="width:190px !important;">
+                        </div>
+                        <div class="chat-content">
+                            <div class="chat-meta"><b>{{data.name}}</b>({{data.email}}) <span class="pull-right"><ul>
+                                <li class="btn btn-xs btn-info" ng-click="edit(data)">Edit</li>
+                                <li class="btn btn-xs btn-danger" ng-click="remove(data._id)">Delete</li>
+                            </ul></span></div>
+                            {{data.message}}
+                            <span class="pull-right" style="margin-top:35px;font-weight:600">{{data.time |date:'fullDate'}}</span>
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </li>
+
+                </ul>
+                <hr/>
+
+                <br/>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-10" ng-if="editform">
+        <div class="awidget">
+            <div class="awidget-head">
+                <h3>Update record</h3>
+            </div>
+            <div class="awidget-body">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">name</label>
+
+                        <div class="col-lg-10">
+                            <input type="text" ng-model="data.name" class="form-control" placeholder="Enter Title">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">email</label>
+
+                        <div class="col-lg-10">
+                            <input type="text" ng-model="data.email" class="form-control" placeholder="Enter Title">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Message</label>
+
+                        <div class="col-lg-10">
+                            <textarea class="form-control" ng-model="data.message" rows="9"
+                                      placeholder="Enter Content"></textarea>
+                        </div>
+                    </div>
+                    <div class="container" id="file-list">
+                        <label><b>UploadImage</b></label>
+                        <input id="files-upload" type="file">
+                        <img id="uploadImg" ng-modal="data.image" ng-src="{{data.image}}" style="width:100px;"></div>
+                    <hr/>
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <button type="submit" class="btn btn-success" ng-click="submit(action)">Save Draft</button>
+                            <button type="submit" class="btn btn-danger" ng-click="cancel();">Cancel</button>
+                        </div>
+                    </div>
+                </form>
+                <script src="fileUpload.js"></script>
+            </div>
+        </div>
+    </div>
+
+</div>

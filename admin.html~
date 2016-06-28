@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html ng-app="App">
+<head>
+    <meta charset="utf-8">
+    <title>Dashboard Admin</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/admin/style.css" rel="stylesheet">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-resource.min.js">
+    </script>
+    <script src="js/angular-route.min.js">
+    </script>
+    <script src="js/custom/app.js"></script>
+
+</head>
+<body ng-controller="TodoController">
+<div class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <!-- Logo -->
+                <div class="logo">
+                    <h1><a href="/new">Dashboard Admin</a></h1>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="row">
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="navbar navbar-inverse" role="banner">
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                            <span>Menu</span>
+                        </button>
+                    </div>
+                    <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-comments"></i> Chats <span class="label label-success">5</span> <b class="caret"></b></a>
+                                <!-- Big dropdown menu -->
+                                <ul class="dropdown-menu dropdown-big animated fadeInUp">
+                                    <!-- Dropdown menu header -->
+                                    <div class="dropdown-head">
+                                        <span class="dropdown-title">Recent Chats</span>
+                                    </div>
+                                    <!-- Dropdown menu body -->
+                                    <div class="dropdown-body">
+                                        <li><i class="fa fa-comments color"></i> <a href="#">Hi, How are you?</a><span class="label label-info pull-right">8.49</span></li>
+                                        <li><i class="fa fa-comments color"></i> <a href="#">What are you doing?</a><span class="label label-info pull-right">6.49</span></li>
+                                        <li><i class="fa fa-comments color"></i> <a href="#">Why are you doing this?</a><span class="label label-info pull-right">4.49</span></li>
+                                        <li><i class="fa fa-comments color"></i> <a href="#">Mr.Baburae what is this?</a><span class="label label-info pull-right">1.49</span></li>
+                                    </div>
+                                    <!-- Dropdown menu footer -->
+                                    <div class="dropdown-foot text-center">
+                                        <a href="#">View All Chats</a>
+                                    </div>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Users <span class="label label-primary">5</span> <b class="caret"></b></a>
+                                <!-- Big dropdown menu -->
+                                <ul class="dropdown-menu dropdown-big animated fadeInUp">
+                                    <!-- Dropdown menu header -->
+                                    <div class="dropdown-head">
+                                        <span class="dropdown-title">Members</span>
+                                    </div>
+                                    <!-- Dropdown menu body -->
+                                    <div class="dropdown-body">
+                                        <li><i class="fa fa-user color"></i> <a href="#">Ashok</a><span class="label label-danger pull-right">Free</span></li>
+                                        <li><i class="fa fa-user color"></i> <a href="#">Ravi Kumar</a><span class="label label-warning pull-right">Premium</span></li>
+                                        <li><i class="fa fa-user color"></i> <a href="#">Baburae</a><span class="label label-primary pull-right">VIP</span></li>
+                                        <li><i class="fa fa-user color"></i> <a href="#">Sunil Kumar</a><span class="label label-warning pull-right">Premium</span></li>
+                                    </div>
+                                    <!-- Dropdown menu footer -->
+                                    <div class="dropdown-foot text-center">
+                                        <a href="#">All Members</a>
+                                    </div>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
+                                <ul class="dropdown-menu animated fadeInUp">
+                                    <li><a href="profile.html">Profile</a></li>
+                                    <li><a href="login.html">Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-content blocky">
+<div class="container">
+<div class="sidebar-dropdown"><a href="#">MENU</a></div>
+<div class="sidey">
+    <div class="side-cont">
+        <ul class="nav">
+            <!-- Main menu -->
+            <li class="current"><a href="index.html"><i class="fa fa-home"></i> Dashboard</a></li>
+            <li><a href="charts.html"><i class="fa fa-bar-chart-o"></i> Charts</a></li>
+            <li class="has_submenu">
+                <a href="#">
+                    <i class="fa fa-sitemap"></i> Elements
+                    <span class="caret pull-right"></span>
+                </a>
+                <ul>
+                    <li><a href="ui.html">User Interface</a></li>
+                    <li><a href="tables.html">Tables</a></li>
+                    <li><a href="form.html">Form</a></li>
+                </ul>
+            </li>
+            <li><a href="widgets.html"><i class="fa fa-th"></i> Widgets</a></li>
+            <li class="has_submenu">
+                <a href="#">
+                    <i class="fa fa-file"></i> Pages
+                    <span class="caret pull-right"></span>
+                </a>
+                <ul>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html">Register</a></li>
+                    <li><a href="errorlog.html">Error Log</a></li>
+                    <li><a href="invoice.html">Invoice</a></li>
+                    <li><a href="404.html">404</a></li>
+                    <li><a href="makepost.html">Make Post</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="media.html">Media</a></li>
+                </ul>
+            </li>
+            <li><a href="calendar.html"><i class="fa fa-calendar"></i> Calendar</a></li>
+            <li><a href="gallery.html"><i class="fa fa-camera"></i> Gallery</a></li>
+        </ul>
+    </div>
+</div>
+<div class="mainy">
+<div class="page-title">
+    <h2><i class="fa fa-desktop color"></i> Dashboard <small>Subtext for header</small></h2>
+    <hr />
+</div>
+<div class="row" ng-controller="TodoController">
+    <div class="col-md-12" ng-if="!editform">
+        <div class="awidget">
+            <div class="awidget-head">
+                <h3>Chat Widget</h3>
+            </div>
+            <div class="awidget-body">
+                <ul class="chats" ng-repeat="data in contactdata ">
+                    <li class="by-me" ng-if="$index %2 == 0">
+
+                        <div class="chat-content">
+                            <div class="chat-meta"><b>{{data.name}}</b>({{data.email}}) <span class="pull-right"><ul>
+                                <li class="btn btn-xs btn-info" ng-click="edit(data)">Edit</li>
+                                <li class="btn btn-xs btn-danger" ng-click="remove(data._id)">Delete</li>
+                            </ul></span></div>
+                            {{data.message}}
+                            <span class="pull-right" style="margin-top:35px;font-weight:600">{{data.time |date:'fullDate'}}</span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </li>
+                    <li class="by-other" ng-if="$index %2 !=0">
+
+                        <div class="chat-content">
+                            <div class="chat-meta"><b>{{data.name}}</b>({{data.email}}) <span class="pull-right"><ul>
+                                <li class="btn btn-xs btn-info" ng-click="edit(data)">Edit</li>
+                                <li class="btn btn-xs btn-danger" ng-click="remove(data._id)">Delete</li>
+                            </ul></span></div>
+                                {{data.message}}
+                            <span class="pull-right" style="margin-top:35px;font-weight:600">{{data.time |date:'fullDate'}}</span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </li>
+
+                </ul>
+                <hr />
+
+                <br />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8" ng-if="editform">
+        <div class="awidget">
+            <div class="awidget-head">
+                <h3>Update record</h3>
+            </div>
+            <div class="awidget-body">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">name</label>
+                        <div class="col-lg-10">
+                            <input type="text"  ng-model="data.name"class="form-control" placeholder="Enter Title">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">email</label>
+                        <div class="col-lg-10">
+                            <input type="text" ng-model="data.email" class="form-control" placeholder="Enter Title">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Message</label>
+                        <div class="col-lg-10">
+                            <textarea class="form-control" ng-model="data.message" rows="3" placeholder="Enter Content"></textarea>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <!--<button type="submit" class="btn btn-danger" ng-click="edit()">Publish</button>-->
+                            <button type="submit" class="btn btn-success">Save Draft</button>
+                            <button type="submit" class="btn btn-danger" ng-click="cancel();">Cancel</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<!--
+    <div class="col-md-10">
+        <div class="awidget">
+            <div class="awidget-head">
+                <h3>Quick Post</h3>
+            </div>
+            <div class="awidget-body">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Title</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" placeholder="Enter Title">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Content</label>
+                        <div class="col-lg-10">
+                            <textarea class="form-control" rows="3" placeholder="Enter Content"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Category</label>
+                        <div class="col-lg-10">
+                            <select class="form-control">
+                                <option>General</option>
+                                <option>Web Designing</option>
+                                <option>Software Designing</option>
+                                <option>UI/UX</option>
+                                <option>Android App</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Tags</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" placeholder="Enter Tags">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> Publish Immediatly
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <button type="submit" class="btn btn-danger">Publish</button>
+                            <button type="submit" class="btn btn-success">Save Draft</button>
+                            <button type="submit" class="btn btn-default">Reset</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+-->
+</div>
+</div>
+<div ng-view></div>
+<div class="clearfix"></div>
+</div>
+
+</div>
+
+<footer>
+    <div class="container">
+
+        <div class="copy text-center">
+            Copyright 2015 © - <a href="http://responsivewebinc.com/bootstrap-themes">Admin </a>
+        </div>
+
+    </div>
+</footer>
+</body>
+</html>

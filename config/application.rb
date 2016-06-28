@@ -1,0 +1,1 @@
+config.assets.precompile += %w( ckeditor/ckeditor_new.js)

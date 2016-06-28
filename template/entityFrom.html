@@ -1,0 +1,82 @@
+<div ng-init="data={}"></div>
+<div ng-if="loader">
+    <img class="text-center" ng-src="img/ajax-loader.gif" style="  margin-top: 10%; margin-left: 40%;" />
+
+</div>
+<div ng-if="!loader">
+    <div ng-if="showRecords">
+        <div class="awidget-head ">
+
+            <div class="pull-right">
+                <button class="btn btn-info" ng-click="addNew();">Add New</button>
+            </div>
+        </div>
+        <br/><br>
+
+    <table class="table table-striped table-bordered ">
+        <thead>
+        <tr>
+            <th ng-repeat="field1 in fields[0].fields" ng-if="$index < 4">{{field1.FieldName}}</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody ng-init="limit=10">
+        <tr ng-repeat="res in response | limitTo:limot">
+            <td>{{res[fields[0].fields[0].FieldName]}}</td>
+            <td ng-if="fields[0].fields.length >1">{{res[fields[0].fields[1].FieldName]}}</td>
+            <td ng-if="fields[0].fields.length >2">{{res[fields[0].fields[2].FieldName]}}</td>
+            <td ng-if="fields[0].fields.length >3">{{res[fields[0].fields[3].FieldName]}}</td>
+            <td width="15%">
+                <div class="btn-group">
+                    <li class="btn btn-xs btn-info" ng-click="editEntity(entity)">Edit</li>
+                    <li class="btn btn-xs btn-danger" ng-click="deleteRecord(res._id)"
+                        style="margin-left:5px;">Delete
+                    </li>
+                </div>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+        <!--<div load-more , scroll-height="800"></div>-->
+</div>
+<div ng-if="!showRecords" >
+    <div ng-repeat="field1 in fields[0].fields">
+
+    <div class="row">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">{{field1.FieldName}}</label>
+            <div ng-switch on="field1.fieldtype">
+                <div class="col-sm-8" ng-switch-when="string">
+                    <input type="text" class="form-control" ng-model="data[field1.FieldName]">
+                </div>
+                <div class="col-sm-8" ng-switch-when="select">
+                    <select class="form-control m-b" name="account" ng-model="data[field1.FieldName]">
+                        <option>option 1</option>
+                        <option>option 2</option>
+                        <option>option 3</option>
+                        <option>option 4</option>
+                    </select>                </div>
+                <div class="col-sm-8" ng-switch-when="number" >
+                    <input type="text" class="form-control" ng-model="data[field1.FieldName]">
+                </div>
+                <div class="col-sm-8" ng-switch-when="number" >
+                    <input type="text" class="form-control" ng-model="data[field1.FieldName]">
+                </div>
+
+                <div class="col-sm-8" ng-switch-when="file" >
+                    <!--<input type="file" id="prevImage" class="form-control" ng-model="data[field1.FieldName]">-->
+
+                    <div file-upload class="container" id="file-list">
+                        <input id="files-upload" type="file">
+                        <img id="uploadImg" ng-modal="data.image" ng-src="{{data.image}}" style="width:100px;">{{data.image}}</div>
+                </div>
+                <div class="col-sm-8" ng-switch-when="textarea" >
+                    <textarea class="form-control" rows="5" id="comment" ng-model="data[field1.FieldName]"></textarea>                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hr-line-dashed"></div>
+</div>
+<button class="btn btn-info" ng-click="addRecord();">test</button>
+</div></div>

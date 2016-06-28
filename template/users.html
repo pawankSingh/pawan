@@ -1,0 +1,82 @@
+<div class="row"  ng-controller="userCtrl">
+    <div class="col-md-12" ng-if="!showForm">
+        <div class="awidget">
+            <div class="awidget-head ">
+                <div class="pull-right">
+                    <button class="btn btn-info" ng-click="showUserForm()">Add New</button>
+                </div>
+            </div><br/><br>
+
+            <div class="awidget-body">
+                <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+<tr><th></th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Image</th>
+    <th>Action</th>
+</tr>
+                    <tr ng-repeat="user in users">
+                        <td>{{$index+1}}</td>
+                        <td>{{user.name}}</td>
+                        <td>{{user.email}}</td>
+                        <td>
+                            <img ng-src="{{user.image}}" style="width:90px !important;">
+                        </td>
+                        <td><ul>
+                            <!--<li class="btn btn-xs btn-info" ng-click="'edit()">Edit</li>-->
+                            <li class="btn btn-xs btn-danger" ng-click="deleteUser(user._id)">Delete</li>
+                        </ul></td>
+                    </tr>
+                </table></div>
+                <hr />
+
+                <br />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-10" ng-if="showForm">
+        <div class="awidget">
+            <div class="awidget-head">
+                <h3>Add/Update User</h3>
+            </div>
+            <div class="awidget-body">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">name</label>
+                        <div class="col-lg-10">
+                            <input type="text"  ng-model="data.name"class="form-control" placeholder="Enter Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">email</label>
+                        <div class="col-lg-10">
+                            <input type="text" ng-model="data.email" class="form-control" placeholder="Enter Email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Password</label>
+                        <div class="col-lg-10">
+                            <input type="password" ng-model="data.password" class="form-control" placeholder="Enter Password">
+                        </div>
+                    </div>
+                    <div class="form-group" id="file-list">
+                        <label class="col-lg-2 control-label">Image</label>
+                        <input class="col-lg-10" id="files-upload" type="file">
+                        <img id="uploadImg" ng-modal="data.image" ng-src="{{data.image}}" style="width:100px;"></div>
+
+                    <hr />
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <button type="submit" class="btn btn-success" ng-click="addUser()">Add User</button>
+                            <button type="submit" class="btn btn-danger" ng-click="cancel();">Cancel</button>
+                        </div>
+                    </div>
+                </form>
+                <script src="fileUpload.js"></script>
+
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app="App">
+<head>
+    <meta charset="utf-8">
+    <title>Dashboard Admin</title>
+    <script src="js/comman_files/jquery-1.11.2.min.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/admin/style.css" rel="stylesheet">
+    <link href="css/login.css" rel="stylesheet">
+    <link href="codemirror.css" rel="stylesheet">
+    <script src="js/comman_files/bootstrap.min.js"></script>
+    <script src="js/comman_files/angular.min.js"></script>
+    <script src="js/comman_files/angular-resource.min.js">
+    </script>
+    <script src="js/comman_files/angular-route.min.js">
+    </script>
+
+    <script src="js/custom/userCtrl.js"></script>
+    <script src="js/services/getEntityFields.js"></script>
+
+    <script src="js/custom/routes.js"></script>
+
+    <script src="js/controller/addEditEntitiesCtrl.js"></script>
+    <script src="js/custom/addEditRecords.js"></script>
+    <script src="fileUpload.js"></script>
+    <script src="js/directive/directive.js"></script>
+
+
+
+</head>
+<body ng-controller="userCtrl">
+<style>
+    .CodeMirror { height: auto; border: 1px solid #ddd; }
+    .CodeMirror-scroll { max-height: 450px; }
+    .CodeMirror pre { padding-left: 7px; line-height: 1.50; }
+</style>
+<div ng-if="user">
+    <div ng-include="'template/login.html'"></div>
+
+</div>
+<div >
+<div ng-include="'template/header.html'"></div>
+<div class="page-content blocky">
+    <div class="container">
+
+        <div class="sidebar-dropdown"><a href="/">MENU</a></div>
+
+        <div ng-include="'template/sidebar.html'"></div>
+        <div class="mainy">
+            <div class="page-title">
+                <h2><i class="fa fa-desktop color"></i> Dashboard
+                    <small>Welcome  {{user.name}}</small>
+                </h2>
+                <hr/>
+            </div>
+            <div ng-view></div>
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+
+</div>
+<footer>
+    <div class="container">
+
+        <div class="copy text-center">
+            Copyright 2015 © - <a href="http://responsivewebinc.com/bootstrap-themes">Admin </a>
+        </div>
+
+    </div>
+</footer>
+</div>
+</body>
+</html>

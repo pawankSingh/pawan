@@ -1,0 +1,182 @@
+<style>
+    .form-group .control-label {
+        text-align: left !important;
+    }
+</style>
+<div class="row" data-ng-controller="slideCtrl">
+    <div class="col-md-12" ng-if="!addslide">
+        <div class="awidget">
+            <div class="awidget-head ">
+
+                <div class="pull-right">
+                    <button class="btn btn-info" ng-click="addSlide();">Add New</button>
+                </div>
+            </div>
+            <br/><br>
+
+            <div class="awidget-body">
+                <form>
+                    <table class="table table-striped table-bordered ">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Image</th>
+                            <th>Action</th>
+                            <th>
+                                Status
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody ui-sortable ng-model="slides">
+                        <tr  ng-repeat="slide in slides">
+                            <td>{{$index}}</td>
+                            <td><i class="icon-file"></i> {{slide.caption}}</td>
+                            <td><i class="icon-file"></i> {{slide.description}}</td>
+                            <td>{{slide.image.length}} images</td>
+
+                            <td width="15%">
+                                <div class="btn-group">
+                                    <li class="btn btn-xs btn-danger" ng-click="removeslide(slide._id)">Delete</li>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+
+                </form>
+                <hr/>
+
+                <br/>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-10" ng-if="addslide">
+        <div class="awidget">
+
+            <div class="awidget-body">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Caption</label>
+
+                        <div class="col-lg-10">
+                            <input type="text" ng-model="data.caption" class="form-control"
+                                   placeholder="Enter Productname">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Description</label>
+
+                        <div class="col-lg-10">
+                           <textarea class="form-control" ng-model="data.description" rows="9"
+                                      placeholder="Enter Content"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Dropdown</label>
+
+                        <div class="col-lg-10">
+                            <div class="btn-group" data-ng-class="{open: openDropDown}" multi-select="openDropDown">
+                                <button class="btn btn-default" type="button" data-ng-click="openDropDown=!openDropDown">{{selectedItems}}<span class="caret"></span></button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu" style="padding:15px;">
+                                    <li ng-click="selectdisselect('Bike');"><label> <input type="checkbox" name="vehicle" value="Bike" > Item </label></li>
+                                    <li ng-click="selectdisselect('1');"><label><input type="checkbox" name="vehicle" value="'10"> Item 2 </label></li>
+                                    <li ng-click="selectdisselect('2');"><label><input type="checkbox" name="vehicle" value="'1000"> Item 3 </label></li>
+                                    <li ng-click="selectdisselect('3');"><label><input type="checkbox" name="vehicle" value="'10000"> Item </label></li>
+                                    <li ng-click="selectdisselect('4');"><label><input type="checkbox" value="1000000"> Item</label></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <label class="col-lg-2 control-label">Images</label>
+                        </div>
+                        <div class="col-lg-10">
+
+                            <table class="table table-striped table-bordered ">
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>Image</th>
+                                    <th>Action</th>
+                                    <th>
+                                        Status
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody >
+                                <tr ng-repeat="slide in images">
+                                    <td>{{$index}}</td>
+                                    <td><img ng-src="{{slide.image}}" style="width:75px !important;"></td>
+
+                                    <td width="15%">
+                                        <div class="btn-group">
+                                            <li class="btn btn-xs btn-danger" ng-click="removeslide(slide._id)">Delete
+                                            </li>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox">
+                                    </td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label"></label>
+
+                        <div class="col-lg-10">
+                            <div class="" id="file-list" style="margin-top: 30px; margin-bottom: 40px;">
+                                <label class="col-lg-4"><b>Product Image</b></label>
+
+                                <div class="col-lg-8">
+                                    <input id="files-upload" type="file">
+                                    <img id="uploadImg" ng-modal="data.slideimage" ng-src="{{data.slideimage}}"
+                                         style="width:100px;">
+                                </div>
+                                <button type="submit" class="btn btn-success pull-left" ng-click="newimage()">Add New</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr/>
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+
+                            <button type="submit" class="btn btn-success" ng-click="submit()">Save</button>
+                            <button type="submit" class="btn btn-danger" ng-click="cancel();">Cancel</button>
+                        </div>
+                    </div>
+                    <div id="alerts">
+                        <noscript>
+                            <p>
+                                <strong>CKEditor requires JavaScript to run</strong>. In a browser with no JavaScript
+                                support, like yours, you should still see the contents (HTML data) and you should
+                                be able to edit it normally, without a rich editor interface.
+                            </p>
+                        </noscript>
+                    </div>
+
+
+                </form>
+                <script src="fileUpload.js"></script>
+                <!--<script src="js/editor.js"></script>-->
+
+            </div>
+        </div>
+    </div>
+
+</div>
+

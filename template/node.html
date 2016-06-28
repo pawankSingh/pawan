@@ -1,0 +1,46 @@
+<div class="node" style="margin-left: 15px;padding: 10px;">
+	<span class="node-actions">
+		<input ng-model="field.name" type="text" placeholder='Name' required/>
+
+<!--
+		<select ng-model="field.type" ng-change="changeFieldType(field, true)" class="{{field.name}}"
+                ng-options="i for i in types"></select>
+-->
+
+        <select ng-model="field.data_type" ng-change="changeFieldType(field, true)" class=""
+                ng-options="i for i in data_types"></select>
+
+        <select ng-if="field.data_type == 'array' " ng-model="field.settings.sub_data_type" ng-change="changeFieldSubType(field)" class=""
+                ng-options="i for i in sub_data_types"></select>
+
+
+         <a href="javascript:void(0);" style="text-decoration: none;" ng-click="delete_node($index, $parent.$parent.field, field.id)"><i title="Remove" class="icon-remove" ></i> </a>
+
+        <a href="javascript:void(0);" style="text-decoration: none;" ng-click="toggleSettings(field)"> <i title="Settings" class="icon-wrench" ></i> </a>
+
+        <div style="background-color: #EEEEEE; margin-bottom: 15px;" ng-if="settings[field.id]" >
+            <form ms-form="settingFormOptions[field.id]"></form>
+        </div>
+
+		<div ng-switch on="field.data_type">
+            <div ng-switch-when="array">
+                <div ng-if="field.settings.sub_data_type == 'object' ">
+                    <div class='subtree' ng-repeat="field in $parent.field.fields">
+                        <div ng-include src="'/templates/mcms/node.html'"></div>
+                    </div>
+                    <a style="margin-left: 25px" ng-click="add_child($parent.field)">
+                        Add more records
+                    </a>
+                </div>
+            </div>
+            <div ng-switch-when="object">
+                <div class='subtree' ng-repeat="field in $parent.field.fields">
+                    <div ng-include src="'/templates/mcms/node.html'"></div>
+                </div>
+                <a style="margin-left: 25px" ng-click="add_child($parent.field)">
+                    Add more records
+                </a>
+            </div>
+        </div>
+    </span>
+</div>
