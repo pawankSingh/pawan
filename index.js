@@ -1,7 +1,7 @@
 var express = require('express');
 var app = module.exports = express();
 app.use(express.bodyParser());
-//var Db = require('mongodb').Db;
+var Db = require('mongodb').Db;
 var router = express.Router();
 app.use(express.static(__dirname + '/'));
 app.engine('html', require('ejs').renderFile);
