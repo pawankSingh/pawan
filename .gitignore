@@ -1,0 +1,13 @@
+node_modules
+.tmp
+.sass-cache
+heroku
+.idea
+.project
+.settings
+public/min/css/*.css
+public/min/js/*.js
+.DS_Store
+.vagrant
+.vscode/
+newrelic_agent.log

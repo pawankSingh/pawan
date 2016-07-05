@@ -1,0 +1,72 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'ms-utils' ]
+2 info using npm@1.3.24
+3 info using node@v0.10.25
+4 warn package.json crypto@0.0.3 crypto is also the name of a node core module.
+5 warn package.json domain@0.0.1 domain is also the name of a node core module.
+6 warn package.json events@1.1.0 events is also the name of a node core module.
+7 warn package.json node-beautify@0.0.5 No repository field.
+8 warn package.json shorter-mongo-id@0.0.2 No repository field.
+9 warn package.json short-mongo-id@0.1.1 No repository field.
+10 verbose readDependencies using package.json deps
+11 verbose cache add [ 'ms-utils', null ]
+12 verbose cache add name=undefined spec="ms-utils" args=["ms-utils",null]
+13 verbose parsed url { protocol: null,
+13 verbose parsed url   slashes: null,
+13 verbose parsed url   auth: null,
+13 verbose parsed url   host: null,
+13 verbose parsed url   port: null,
+13 verbose parsed url   hostname: null,
+13 verbose parsed url   hash: null,
+13 verbose parsed url   search: null,
+13 verbose parsed url   query: null,
+13 verbose parsed url   pathname: 'ms-utils',
+13 verbose parsed url   path: 'ms-utils',
+13 verbose parsed url   href: 'ms-utils' }
+14 silly lockFile 5b331492-ms-utils ms-utils
+15 verbose lock ms-utils /Users/pawankumarsingh/.npm/5b331492-ms-utils.lock
+16 silly lockFile 5b331492-ms-utils ms-utils
+17 silly lockFile 5b331492-ms-utils ms-utils
+18 verbose addNamed [ 'ms-utils', '' ]
+19 verbose addNamed [ null, '*' ]
+20 silly lockFile 1ff7a03e-ms-utils ms-utils@
+21 verbose lock ms-utils@ /Users/pawankumarsingh/.npm/1ff7a03e-ms-utils.lock
+22 silly addNameRange { name: 'ms-utils', range: '*', hasData: false }
+23 verbose url raw ms-utils
+24 verbose url resolving [ 'https://registry.npmjs.org/', './ms-utils' ]
+25 verbose url resolved https://registry.npmjs.org/ms-utils
+26 info trying registry request attempt 1 at 22:36:51
+27 http GET https://registry.npmjs.org/ms-utils
+28 http 404 https://registry.npmjs.org/ms-utils
+29 silly registry.get cb [ 404,
+29 silly registry.get   { 'content-type': 'application/json',
+29 silly registry.get     'cache-control': 'max-age=0',
+29 silly registry.get     'content-length': '2',
+29 silly registry.get     'accept-ranges': 'bytes',
+29 silly registry.get     date: 'Tue, 05 Jul 2016 17:06:53 GMT',
+29 silly registry.get     via: '1.1 varnish',
+29 silly registry.get     age: '0',
+29 silly registry.get     connection: 'keep-alive',
+29 silly registry.get     'x-served-by': 'cache-sin6920-SIN',
+29 silly registry.get     'x-cache': 'MISS',
+29 silly registry.get     'x-cache-hits': '0',
+29 silly registry.get     'x-timer': 'S1467738413.528589,VS0,VE250',
+29 silly registry.get     vary: 'Accept-Encoding' } ]
+30 silly addNameRange number 2 { name: 'ms-utils', range: '*', hasData: true }
+31 silly addNameRange versions [ undefined, [] ]
+32 error TypeError: Cannot read property 'latest' of undefined
+32 error     at next (/usr/local/lib/node_modules/npm/lib/cache.js:692:35)
+32 error     at /usr/local/lib/node_modules/npm/lib/cache.js:680:5
+32 error     at saved (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/get.js:142:7)
+32 error     at /usr/local/lib/node_modules/npm/node_modules/graceful-fs/polyfills.js:133:7
+32 error     at Object.oncomplete (fs.js:107:15)
+33 error If you need help, you may report this *entire* log,
+33 error including the npm and node versions, at:
+33 error     <http://github.com/isaacs/npm/issues>
+34 error System Darwin 15.5.0
+35 error command "node" "/usr/local/bin/npm" "install" "ms-utils"
+36 error cwd /Users/pawankumarsingh/project/pawan
+37 error node -v v0.10.25
+38 error npm -v 1.3.24
+39 error type non_object_property_load
+40 verbose exit [ 1, true ]
